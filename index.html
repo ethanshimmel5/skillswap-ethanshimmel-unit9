@@ -35,84 +35,39 @@
             </div>
         </section>
 
-        <section class="skills-sections container" id="skills">
 
+        <section class="skills-section container" id="skills">
             <h2>Explore Skills</h2>
-            <p>
-                Discover opportunities to learn from
-                other students.
-            </p>
-            <div class="skill-filters" aria-label="Filter skills by category">
-                <button type="button" class="filter-button active" data-category="All">All</button>
-                <button type="button" class="filter-button" data-category="Technology">Technology</button>
-                <button type="button" class="filter-button" data-category="Creative">Creative</button>
-                <button type="button" class="filter-button" data-category="Business">Business</button>
-                <button type="button" class="filter-button" data-category="Communication">Communication</button>
-            </div>
+            <p>Discover opportunities to learn from other students.</p>
 
-            <p id="filter-status" aria-live="polite">Showing all skills.</p>
-            <div class="skill-grid">
-                <article class="skill-card" data-category="Technology" data-price="15">
-                    <h3>Web Development</h3>
-                    <p>Learn the basics of building websites with HTML and CSS.</p>
-                    <p><strong>Price:</strong> $15 per session</p>
-                    <p><strong>Provider:</strong> Alex</p>
+            <div class="skill-filters" id="skill-filters"></div>
 
-                    <button class="details-button" type="button" aria-expanded="false" aria-controls="details-web">
-                        More Information
-                    </button>
+            <p id="filter-status">Showing all skills.</p>
+            <p id="loading-message">Loading skills...</p>
+            <p id="error-message" role="alert"></p>
 
-                    <p class="extra-details" id="details-web" hidden>
-                        Beginner-friendly lessons covering page structure and styling.
-                    </p>
-                </article>
+            <div class="skill-grid" id="skill-grid"></div>
+        </section>
 
-                <article class="skill-card" data-category="Creative" data-price="10">
-                    <h3>Photography</h3>
-                    <p>Practice composition, lighting, and taking better photos.</p>
-                    <p><strong>Price:</strong> $10 per session</p>
-                    <p><strong>Provider:</strong> Jordan</p>
+        <section class="offer-section container" id="offer">
+            <h2>Share What You Know</h2>
 
-                    <button class="details-button" type="button" aria-expanded="false" aria-controls="details-photo">
-                        More Information
-                    </button>
+            <form id="skill-form">
+                <label for="title">Skill Title</label>
+                <input type="text" id="title" required>
 
-                    <p class="extra-details" id="details-photo" hidden>
-                        Learn practical techniques for portraits and everyday photography.
-                    </p>
-                </article>
+                <label for="category">Category</label>
+                <input type="text" id="category" required>
 
-                <article class="skill-card" data-category="Business" data-price="12">
-                    <h3>Excel Basics</h3>
-                    <p>Learn spreadsheets, formulas, and basic data organization.</p>
-                    <p><strong>Price:</strong> $12 per session</p>
-                    <p><strong>Provider:</strong> Taylor</p>
+                <label for="price">Price per Session</label>
+                <input type="number" id="price" min="0" step="0.01" required>
 
-                    <button class="details-button" type="button" aria-expanded="false" aria-controls="details-excel">
-                        More Information
-                    </button>
+                <label for="description">Description</label>
+                <textarea id="description" required></textarea>
 
-                    <p class="extra-details" id="details-excel" hidden>
-                        Practice formulas and organize information into useful tables.
-                    </p>
-                </article>
-
-                <article class="skill-card" data-category="Communication" data-price="8">
-                    <h3>Public Speaking</h3>
-                    <p>Build confidence and improve presentation skills.</p>
-                    <p><strong>Price:</strong> $8 per session</p>
-                    <p><strong>Provider:</strong> Morgan</p>
-
-                    <button class="details-button" type="button" aria-expanded="false" aria-controls="details-speaking">
-                        More Information
-                    </button>
-
-                    <p class="extra-details" id="details-speaking" hidden>
-                        Work on speech organization, delivery, and speaking with confidence.
-                    </p>
-                </article>
-            </div>
-
+                <button type="submit">Add Skill</button>
+                <p id="form-message" role="status"></p>
+            </form>
         </section>
 
         <section class="tools-section container" id="cost-calculator">
@@ -139,10 +94,7 @@
             <form id="match-form">
                 <label for="needed-category">What do you want to learn?</label>
                 <select id="needed-category" required>
-                    <option value="Technology">Technology</option>
-                    <option value="Creative">Creative</option>
-                    <option value="Business">Business</option>
-                    <option value="Communication">Communication</option>
+                    <option value="">Choose a category</option>
                 </select>
 
                 <label for="max-price">Maximum price per session ($)</label>
@@ -156,15 +108,7 @@
             </div>
         </section>
 
-        <section class="offer-sections container" id="offer">
-            <h2>Offer Your Skills</h2>
-            <p>
-                Everyone has something valuable
-                they can teach someone else.
-            </p>
-        </section>
-
-        <section class="about-sections container" id="about">
+        <section class="about-section container" id="about">
             <h2>About Skill Swap</h2>
             <p>
                 Skill Swap helps peope connect through
@@ -181,6 +125,7 @@
             </p>
         </div>
     </footer>
+    <script src="api-service.js"></script>
     <script src="skillswap-functions.js"></script>
     <script src="script.js"></script>
 </body>

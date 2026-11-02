@@ -1,3 +1,5 @@
+/* General Styles */
+
 * {
     box-sizing: border-box;
 }
@@ -18,6 +20,8 @@ body {
     width: min(1100px, 90%);
     margin: 0 auto;
 }
+
+/* Header and Navigation */
 
 header {
     background-color: #183153;
@@ -55,6 +59,8 @@ nav a:focus-visible {
     text-decoration: underline;
 }
 
+/* Hero Section */
+
 .hero {
     padding: 75px 0;
     text-align: center;
@@ -62,7 +68,7 @@ nav a:focus-visible {
 }
 
 .hero h2 {
-    font-size: clamp (2rem, 5vw, 3rem);
+    font-size: clamp(2rem, 5vw, 3rem);
     line-height: 1.2;
     margin: 0 0 12px;
 }
@@ -88,6 +94,8 @@ nav a:focus-visible {
     background: #183153;
 }
 
+/* Main Sections */
+
 .skills-section,
 .offer-section,
 .about-section {
@@ -95,19 +103,7 @@ nav a:focus-visible {
     padding-bottom: 35px;
 }
 
-footer {
-    margin-top: 30px;
-    padding: 20px;
-    background-color: #183153;
-    color: white;
-    text-align: center;
-}
-
-footer p {
-    margin: 0;
-}
-
-/* Skill card integration */
+/* Skill Cards */
 
 .skill-grid {
     display: grid;
@@ -147,8 +143,14 @@ footer p {
 .extra-details {
     margin-top: 14px;
     padding-top: 12px;
-    border-top: 1px solid #dce3ed
+    border-top: 1px solid #dce3ed;
 }
+
+.skill-card[hidden] {
+    display: none;
+}
+
+/* Skill Filters */
 
 .skill-filters {
     display: flex;
@@ -173,6 +175,85 @@ footer p {
     background: #2459a9;
     color: white;
 }
+
+/* Skill Creation Form */
+
+.offer-section {
+    margin-top: 20px;
+    padding: 35px;
+    background: #e2edff;
+    border-radius: 12px;
+}
+
+.offer-section h2 {
+    margin-top: 0;
+    color: #183153;
+}
+
+#skill-form {
+    display: grid;
+    gap: 10px;
+    max-width: 600px;
+    margin-top: 20px;
+}
+
+#skill-form label {
+    margin-top: 8px;
+    color: #243047;
+    font-weight: bold;
+}
+
+#skill-form input,
+#skill-form textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #dce3ed;
+    border-radius: 8px;
+    background: white;
+    color: #243047;
+    font-family: Arial, sans-serif;
+    font-size: 1rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+#skill-form input:focus,
+#skill-form textarea:focus {
+    outline: none;
+    border-color: #2459a9;
+    box-shadow: 0 0 0 3px rgba(36, 89, 169, 0.15);
+}
+
+#skill-form textarea {
+    min-height: 110px;
+    resize: vertical;
+}
+
+#skill-form button {
+    justify-self: start;
+    margin-top: 12px;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    background: #2459a9;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+#skill-form button:hover,
+#skill-form button:focus-visible {
+    background: #183153;
+}
+
+#form-message {
+    margin: 8px 0 0;
+    color: #183153;
+    font-weight: bold;
+}
+
+/* Calculator and Matching Tools */
 
 .tools-section {
     padding-top: 35px;
@@ -212,9 +293,32 @@ footer p {
     border-radius: 6px;
 }
 
-.skill-card[hidden] {
-    display: none;
+/* Loading and Error Messages */
+
+#loading-message,
+#error-message {
+    margin-top: 12px;
 }
+
+#error-message {
+    color: #b42318;
+}
+
+/* Footer */
+
+footer {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #183153;
+    color: white;
+    text-align: center;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* Mobile Layout */
 
 @media (max-width: 600px) {
     .header-content {
@@ -228,5 +332,13 @@ footer p {
 
     .hero {
         padding: 50px 0;
+    }
+
+    .offer-section {
+        padding: 22px;
+    }
+
+    #skill-form button {
+        width: 100%;
     }
 }
